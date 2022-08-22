@@ -1,0 +1,59 @@
+﻿@model WebBanHang.Context.Order
+
+@{
+    ViewBag.Title = "Delete";
+    
+}
+<div class="content-wrapper">
+    <h2>Xóa</h2>
+
+    <h3>Bạn có chắc chắn muốn xóa sản phẩm này không?</h3>
+    <div>
+        <h4>Đơn hàng</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedOnUser)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreatedOnUser)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm("Delete", "Order", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Xóa" class="btn btn-default" /> |
+                @Html.ActionLink("Quay lại danh sách", "Index")
+            </div>
+        }
+    </div>
+    </div>

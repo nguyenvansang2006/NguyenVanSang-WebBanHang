@@ -1,0 +1,161 @@
+﻿
+@{
+    ViewBag.Title = "ProductPayment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chọn Phương Thức Thanh Toán</h2>
+<label><input type="radio" id="rdoCash" name="paymentMethod" value="CASH" checked="checked" /> Tiền mặt</label>
+<label><input type="radio" id="rdoNL" name="paymentMethod" value="NL" /> TK Ngân Lượng</label>
+
+<label><input type="radio" id="rdoBank" value="ATM_ONLINE" name="paymentMethod" /> Thẻ Ngân hàng nội địa</label>
+
+<label><input type="radio" id="rdoVisa" name="paymentMethod" value="VISA" /> VISA</label>
+
+<section class="section-content padding-y">
+    <div class="container" style="max-width: 720px;">
+       
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h4 class="card-title mb-3">Thông tin giao hàng</h4>
+
+                    <div class="form-row">
+                        <div class="form-group col-sm-6">
+                            <label class="js-check box active">
+                                <input type="radio" name="dostavka" value="option1" checked>
+                                <h6 class="title">Tiêu chuẩn giao hàng</h6>
+                                <p class="text-muted">Miễn phí giao hàng trong vòng 20 ngày</p>
+                            </label> <!-- js-check.// -->
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label class="js-check box">
+                                <input type="radio" name="dostavka" value="option1">
+                                <h6 class="title">Chuyển phát nhanh</h6>
+                                <p class="text-muted">Thêm 20$ sẽ được tính phí </p>
+                            </label> <!-- js-check.// -->
+                        </div>
+                    </div> <!-- form row.// -->
+
+                    <div class="form-row">
+                        <div class="col form-group">
+
+                            <label>Tên</label>
+                            <input name="username" type="text" class="form-control" placeholder="">
+                        </div> <!-- form-group end.// -->
+                        <div class="col form-group">
+                            <label>Họ</label>
+                            <input type="text" class="form-control" placeholder="">
+                        </div> <!-- form-group end.// -->
+                    </div> <!-- form-row end.// -->
+
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" placeholder="">
+                        </div> <!-- form-group end.// -->
+                        <div class="col form-group">
+                            <label>Số điện thoại</label>
+                            <input type="text" class="form-control" placeholder="">
+                        </div> <!-- form-group end.// -->
+                    </div> <!-- form-row end.// -->
+
+                    <div class="form-group">
+
+                        <label>Địa chỉ</label>
+                        <textarea class="form-control" rows="2"></textarea>
+                    </div> <!-- form-group// -->
+
+                    <div class="col form-group">
+                        <label>
+                            <input type="checkbox" id="chkUserLoginInfo" />
+                            Sử dụng thông tin đăng nhập
+                        </label>
+                    </div>
+
+
+                    <div class="contact-form">
+                        <form method="post" id="frmPayment">
+                            @if (Request.IsAuthenticated)
+                            {
+                                <label>
+                                    <input type="checkbox" id="chkUserLoginInfo" />
+                                    Sử dụng thông tin đăng nhập
+                                </label>
+                            }
+                        </form>
+                    </div>
+                </div> <!-- card-body.// -->
+            </div>  <!-- card .// -->
+
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4 class="card-title mb-4">Thanh toán</h4>
+                <form role="form" style="max-width:380px;">
+                    <div class="form-group">
+                        <label for="username">Tên trên thẻ</label>
+                        <input type="text" class="form-control" name="username" placeholder="Nguyen Van A" required="">
+                    </div> <!-- form-group.// -->
+
+                    <div class="form-group">
+                        <label for="cardNumber">Số thẻ</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="cardNumber" placeholder="">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="fab fa-cc-visa"></i> &nbsp; <i class="fab fa-cc-amex"></i> &nbsp;
+                                    <i class="fab fa-cc-mastercard"></i>
+                                </span>
+                            </div>
+                        </div> <!-- input-group.// -->
+                    </div> <!-- form-group.// -->
+
+                    <div class="row">
+                        <div class="col-md flex-grow-0">
+                            <div class="form-group">
+                                <label class="hidden-xs">Hết hạn</label>
+                                <div class="form-inline" style="min-width: 220px">
+                                    <select class="form-control" style="width:100px">
+                                        <option>MM</option>
+                                        <option>01 - Tháng 1</option>
+                                        <option>02 - Tháng 2</option>
+                                        <option>03 - Tháng 3</option>
+                                        <option>04 - Tháng 4</option>
+                                        <option>05 - Tháng 5</option>
+                                        <option>06 - Tháng 6</option>
+                                        <option>07 - Tháng 7</option>
+                                        <option>08 - Tháng 8</option>
+                                        <option>09 - Tháng 9</option>
+                                        <option>10 - Tháng 10</option>
+                                        <option>11 - Tháng 11</option>
+                                        <option>12 - Tháng 12</option>
+                                    </select>
+                                    <span style="width:20px; text-align: center"> / </span>
+                                    <select class="form-control" style="width:100px">
+                                        <option>YY</option>
+                                        <option>2022</option>
+                                        <option>2023</option>
+                                        <option>2024</option>
+                                        <option>2025</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label data-toggle="tooltip" title="3 digits code on back side of the card">CVV <i class="fa fa-question-circle"></i></label>
+                                <input class="form-control" required="" type="text">
+                            </div> <!-- form-group.// -->
+                        </div>
+                    </div> <!-- row.// -->
+                    <a href="@Url.Action("Index", "Payment")"<button class="subscribe btn btn-primary btn-block" type="button"> Xác nhận  </button></a>
+                </form>
+            </div> <!-- card-body.// -->
+        </div> <!-- card .// -->
+
+
+        <br><br>
+
+    </div> <!-- container .//  -->
+</section>
+<p><a href="@Url.Action("Index","Home")">Tiếp tục mua hàng</a></p>

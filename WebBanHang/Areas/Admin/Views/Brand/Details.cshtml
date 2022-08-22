@@ -1,0 +1,84 @@
+﻿@model WebBanHang.Context.Brand
+
+@{
+    ViewBag.Title = "Details";
+    
+}
+<div class="content-wrapper">
+    <h2>Chi tiết thương hiệu</h2>
+
+    <div>
+        <h4>Thương hiệu</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Avatar)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Avatar)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Slug)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Slug)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ShowOnHomePage)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ShowOnHomePage)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DisplayOrder)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DisplayOrder)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedOnUser)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreatedOnUser)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UpdatedOnUser)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UpdatedOnUser)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Deleted)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Deleted)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Quay lại danh sách", "Index")
+    </p>
+    </div>

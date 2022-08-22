@@ -1,0 +1,123 @@
+﻿@model WebBanHang.Context.Order
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+
+
+
+
+}
+
+<h2>Thanh toán thành công</h2>
+
+<!-- ========================= SECTION PAGETOP ========================= -->
+<section class="section-pagetop bg-gray">
+    <div class="container">
+        <h2 class="title-page">Tài khoản của tôi</h2>
+    </div> <!-- container //  -->
+</section>
+<!-- ========================= SECTION PAGETOP END// ========================= -->
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y">
+    <div class="container">
+
+        <div class="row">
+            <aside class="col-md-3">
+                <nav class="list-group">
+                    <a class="list-group-item" href="page-profile-main.html"> Tổng quan về tài khoản  </a>
+                    <a class="list-group-item" href="page-profile-address.html"> Địa chỉ của tôi </a>
+                    <a class="list-group-item active" href="page-profile-orders.html"> Đơn đặt hàng của tôi </a>
+                    <a class="list-group-item" href="page-profile-wishlist.html"> Sản phẩm yêu thích </a>
+                    <a class="list-group-item" href="page-profile-seller.html"> Các mặt hàng bán chạy của tôi </a>
+                    <a class="list-group-item" href="page-profile-setting.html"> Cài đặt </a>
+                    <a class="list-group-item" href="~/Home/Logout"> Đăng xuất </a>
+                </nav>
+            </aside> <!-- col.// -->
+           
+            <main class="col-md-9">
+                
+                    <article class="card mb-4">
+
+                        <header class="card-header">
+                            <a href="#" class="float-right"> <i class="fa fa-print"></i> In</a>
+                            <strong class="d-inline-block mr-3">ID đặt hàng:</strong>
+                            <span>Ngày đặt hàng: </span>
+                        </header>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h6 class="text-muted">Chuyển tới</h6>
+                                    <p>
+                                        Nguyễn Văn A <br>
+                                        Số điện thoại +1234567890 Email: myname@gmail.com <br>
+                                        Địa điểm: Số nhà, Tên tòa nhà, Đường 123, <br>
+                                        P.O. Box: 100123
+                                    </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <h6 class="text-muted">Thanh toán</h6>
+                                    <span class="text-success">
+                                        <i class="fab fa-lg fa-cc-visa"></i>
+                                        Visa  **** 4216
+                                    </span>
+                                    <p>
+                                        Tổng phụ: $356 <br>
+
+                                        Phí vận chuyển:  $56 <br>
+                                        <span class="b">Tổng cộng:  $456 </span>
+                                    </p>
+                                </div>
+                            </div> <!-- row.// -->
+                        </div> <!-- card-body .// -->
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <td width="65">
+                                            <img src="~/Content/images/items/" class="img-xs border">
+                                        </td>
+                                        <td>
+                                            <p class="title mb-0">Tên sản phẩm ở đây</p>
+                                            <var class="price text-muted">USD 145</var>
+                                        </td>
+                                        <td>
+                                            Người bán <br> Nike clothing
+                                        </td>
+                                        <td width="250">
+                                            <a href="#" class="btn btn-outline-primary">Theo dõi thứ tự</a>
+                                            <div class="dropdown d-inline-block">
+                                                <a href="#" data-toggle="dropdown" class="dropdown-toggle btn btn-outline-secondary">Hơn</a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a href="#" class="dropdown-item">Trở về</a>
+                                                    <a href="#" class="dropdown-item">Hủy đơn hàng</a>
+                                                </div>
+                                            </div> <!-- dropdown.// -->
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- table-responsive .end// -->
+
+                    </article> <!-- card order-item .// -->
+
+                
+
+
+
+                </main> <!-- col.// -->
+                        
+
+                </div>
+                        
+
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+
+<p><a href="@Url.Action("Index","Home")">Tiếp tục mua hàng</a></p>
+<!-- ========================= SECTION CONTENT END// ========================= -->

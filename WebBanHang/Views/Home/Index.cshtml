@@ -1,0 +1,490 @@
+﻿
+@model WebBanHang.Models.HomeModel
+
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<html lang="en">
+
+<body>
+
+
+    <nav class="navbar navbar-main navbar-expand-lg border-bottom">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav"
+                    aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="main_nav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-bars text-muted mr-2"></i> Trang chủ
+                        </a>
+                        <div class="dropdown-menu dropdown-large">
+                            <nav class="row">
+                                <div class="col-6">
+                                    <a href="page-index-1.html">Trang chủ 1</a>
+                                    <a href="page-index-2.html">Trang chủ 2</a>
+                                    <a href="page-category.html">Tất cả danh mục</a>
+                                    <a href="page-listing-large.html">Danh sách niêm yết</a>
+                                    <a href="page-listing-grid.html">Lưới danh sách</a>
+                                    <a href="page-shopping-cart.html">Giỏ hàng</a>
+                                    <a href="page-detail-product.html">Chi tiết sản phẩm</a>
+                                    <a href="page-content.html">Nội dung trang</a>
+                                    <a href="page-user-login.html">Đăng nhập trang</a>
+                                    <a href="page-user-register.html">Đăng ký trang</a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="page-profile-main.html">Hồ sơ chính</a>
+                                    <a href="page-profile-orders.html">Hồ sơ đặt hàng</a>
+                                    <a href="page-profile-seller.html">Hồ sơ người bán</a>
+                                    <a href="page-profile-wishlist.html">Danh sách yêu thích hồ sơ</a>
+                                    <a href="page-profile-setting.html">Cài đặt hồ sơ</a>
+                                    <a href="page-profile-address.html">Địa chỉ hồ sơ</a>
+                                    <a href="page-components.html" target="_blank">Các thành phần khác</a>
+                                </div>
+                            </nav> <!--  row end .// -->
+                        </div> <!--  dropdown-menu dropdown-large end.// -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sẵn sàng giao hàng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Triển lãm thương mại</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Dịch vụ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Bán hàng cùng chúng tôi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index","Product")">Tìm kiếm sản phẩm</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-md-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tải ứng dụng</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="http://example.com"
+                           data-toggle="dropdown">Tiếng Anh</a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#">Tiếng Nga</a>
+                            <a class="dropdown-item" href="#">Tiếng Pháp</a>
+                            <a class="dropdown-item" href="#">Tiếng Tây Ban Nha</a>
+                            <a class="dropdown-item" href="#">Tiếng Trung Quốc</a>
+                        </div>
+                    </li>
+                </ul>
+            </div> <!-- collapse .// -->
+        </div> <!-- container .// -->
+    </nav>
+    </header> <!-- section-header.// -->
+
+
+
+    <div class="container">
+        <!-- ========================= SECTION MAIN  ========================= -->
+        <section class="section-main padding-y">
+            <main class="card">
+                <div class="card-body">
+
+                    <div class="row">
+                        <aside class="col-lg col-md-3 flex-lg-grow-0">
+                            <nav class="nav-home-aside">
+                                <h6 class="title-category"><a href="~/Category/Index">Danh mục <i class="d-md-none icon fa fa-chevron-down"></i></a></h6>
+                                <ul class="menu-category">
+                                    @foreach (var item in Model.ListCategory)
+                                    {
+                                        <li>
+                                            
+                                            @Html.ActionLink(item.Name, "ProductCategoty", "Category", new { @Id = item.Id }, null)
+                                        </li>
+                                    }
+                                </ul>
+                            </nav>
+                        </aside> <!-- col.// -->
+                        <div class="col-md-9 col-xl-7 col-lg-7">
+
+                            <!-- ================== COMPONENT SLIDER  BOOTSTRAP  ==================  -->
+                            <div id="carousel1_indicator" class="slider-home-banner carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carousel1_indicator" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel1_indicator" data-slide-to="1"></li>
+                                    <li data-target="#carousel1_indicator" data-slide-to="2"></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="~/Content/images/banners/sl1.png" alt="First slide">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="~/Content/images/banners/sl2.png" alt="Second slide">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="~/Content/images/banners/sl3.jpg" alt="Third slide">
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carousel1_indicator" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Trước</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carousel1_indicator" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">
+                                        Tiếp theo
+                                    </span>
+                                </a>
+                            </div>
+                            <!-- ==================  COMPONENT SLIDER BOOTSTRAP end.// ==================  .// -->
+
+                        </div> <!-- col.// -->
+                        <div class="col-md d-none d-lg-block flex-grow-1">
+                            <aside class="special-home-right">
+                                <h6 class="bg-blue text-center text-white mb-0 p-2">Danh mục phổ biến</h6>
+                                @foreach (var item in Model.ListCategory.Where(n=>n.ShowOnHomePage==true).Take(3))
+                                {
+                                    <div class="card-banner border-bottom">
+                                        <div class="py-3" style="width:80%">
+                                            <h6 class="card-title">@item.Name</h6>
+                                            <a href="#" class="btn btn-secondary btn-sm"> Nguồn bây giờ </a>
+                                        </div>
+                                        <img src="~/Content/images/items/@item.Avatar" height="80" class="img-bg">
+                                    </div>
+                                }
+
+
+                            </aside>
+                        </div> <!-- col.// -->
+                    </div> <!-- row.// -->
+
+                </div> <!-- card-body.// -->
+            </main> <!-- card.// -->
+
+        </section>
+        <!-- ========================= SECTION MAIN END// ========================= -->
+        <!-- =============== SECTION DEAL =============== -->
+        <section class="padding-bottom">
+            <div class="card card-deal">
+                <div class="col-heading content-body">
+                    <header class="section-heading">
+                        <h3 class="section-title">Giảm giá sốc</h3>
+                        <p>Thiết bị vệ sinh</p>
+                    </header><!-- sect-heading -->
+                    <div class="timer">
+                        <div> <span class="num">04</span> <small>Ngày</small></div>
+                        <div> <span class="num">12</span> <small>Giờ</small></div>
+                        <div> <span class="num">58</span> <small>Phút</small></div>
+                        <div> <span class="num">02</span> <small>Giây</small></div>
+                    </div>
+                </div> <!-- col.// -->
+                <div class="row no-gutters items-wrap">
+                    @foreach (var item in Model.ListProduct.Where(n=>n.TypeId==1).Take(4))
+                    {
+                    <div class="col-md col-6">
+                        <figure class="card-product-grid card-sm">
+                            <a href="@Url.Action("Details", "Product", new { Id = item.Id })" class="img-wrap">
+                                <img src="~/Content/images/items/@item.Avatar">
+                            </a>
+                            <div class="text-wrap p-3">
+                                @Html.ActionLink(item.Name, "Details", "Product", new { @Id = item.Id }, null)
+                                <span class="badge badge-danger"> -20% </span>
+                            </div>
+                        </figure>
+                    </div> <!-- col.// -->
+                    }
+
+                </div>
+            </div>
+                    
+        </section>
+        <!-- =============== SECTION DEAL // END =============== -->
+        <!-- =============== SECTION 1 =============== -->
+        <section class="padding-bottom">
+            <header class="section-heading heading-line">
+                <h4 class="title-section text-uppercase">Apple</h4>
+            </header>
+
+            <div class="card card-home-category">
+                <div class="row no-gutters">
+                    <div class="col-md-3">
+
+                        <div class="home-category-banner bg-light-orange">
+                            <h5 class="title">Xu hướng tốt nhất chỉ dành cho  mọi người</h5>
+                            <p>Apple là một tập đoàn công nghệ đa quốc gia của Mỹ có trụ sở chính tại Cupertino, California, chuyên thiết kế, phát triển và bán thiết bị điện tử tiêu dùng. </p>
+                            <a href="#" class="btn btn-outline-primary rounded-pill">Nguồn bây giờ</a>
+                            <img src="~/Content/images/items/ip12.png" class="img-bg">
+                        </div>
+
+                    </div> <!-- col.// -->
+                    <div class="col-md-9">
+                        <ul class="row no-gutters bordered-cols">
+                            @foreach (var item in Model.ListProduct.Where(n=>n.BrandId==1).Take(8))
+                            {
+                            <li class="col-6 col-lg-3 col-md-4">
+                               <a href="@Url.Action("Details", "Product", new { Id = item.Id })" class="item">
+                                    <div class="card-body">
+                                        <h6 class="title">Các dòng sản phẩm phần cứng của hãng bao gồm điện thoại thông minh iPhone, máy tính bảng iPad, máy tính xách tay Macbook  </h6>
+                                        <img class="img-sm float-right" src="~/Content/images/items/@item.Avatar">
+                                        <p class="text-muted"><i class="fa fa-map-marker-alt"></i> @item.Name</p>
+                                    </div>
+                                </a>
+                            </li>
+                            }
+                        </ul>
+                    </div> <!-- col.// -->
+                </div> <!-- row.// -->
+            </div> <!-- card.// -->
+        </section>
+        <!-- =============== SECTION 1 END =============== -->
+        <!-- =============== SECTION 2 =============== -->
+        <section class="padding-bottom">
+            <header class="section-heading heading-line">
+                <h4 class="title-section text-uppercase">SamSung</h4>
+            </header>
+
+            <div class="card card-home-category">
+                <div class="row no-gutters">
+                    <div class="col-md-3">
+
+                        <div class="home-category-banner bg-light-orange">
+                            <h5 class="title">
+
+                                Các mặt hàng cho người dùng
+                            </h5>
+                            <p>Samsung được sáng lập bởi doanh nhân Lee Byung-chul vào năm 1938, khởi đầu là một công ty buôn bán nhỏ </p>
+                            <a href="#" class="btn btn-outline-primary rounded-pill">Nguồn bây giờ</a>
+                            <img src="~/Content/images/items/ss10611.jpg" class="img-bg">
+                        </div>
+
+                    </div> <!-- col.// -->
+                    <div class="col-md-9">
+                        <ul class="row no-gutters bordered-cols">
+                            @foreach (var item in Model.ListProduct.Where(n => n.BrandId == 2).Take(8))
+                            {
+                                <li class="col-6 col-lg-3 col-md-4">
+                                   <a href="@Url.Action("Details", "Product", new { Id = item.Id })" class="item">
+                                        <div class="card-body">
+                                            <h6 class="title">Samsung vẫn luôn dẫn đầu hàng loạt bảng xếp hạng về sức ảnh hưởng trên thị trường Châu Á nói riêng và thế giới nói chung.  </h6>
+                                            <img class="img-sm float-right" src="~/Content/images/items/@item.Avatar">
+                                            <p class="text-muted"><i class="fa fa-map-marker-alt"></i> @item.Name</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </div> <!-- col.// -->
+                </div> <!-- row.// -->
+            </div> <!-- card.// -->
+        </section>
+        <!-- =============== SECTION 2 END =============== -->
+        <!-- =============== SECTION REQUEST =============== -->
+
+        <section class="padding-bottom">
+
+            <header class="section-heading heading-line">
+                <h4 class="title-section text-uppercase">Yêu cầu báo giá</h4>
+            </header>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card-banner banner-quote overlay-gradient" style="background-image: url('~/Content/images/banners/banner9.jpg');">
+                        <div class="card-img-overlay white">
+                            <h3 class="card-title">Một cách dễ dàng để gửi yêu cầu đến nhà cung cấp</h3>
+                            <p class="card-text" style="max-width: 400px">
+                                Samsung - Lịch sử phát triển trở thành đế chế hàng đầu châu Á-6
+                                Trên đây là thông tin về Samsung – Lịch sử phát triển trở thành đế chế hàng đầu châu Á. Hy vọng những thông tin này sẽ giúp ích cho bạn hiểu thêm về tập đoàn khổng lồ này.
+                            </p>
+                            <a href="" class="btn btn-primary rounded-pill">
+                                Tìm hiểu thêm
+                            </a>
+                        </div>
+                    </div>
+                </div> <!-- col // -->
+                <div class="col-md-4">
+
+                    <div class="card card-body">
+                        <h4 class="title py-3">Một yêu cầu, nhiều trích dẫn</h4>
+                        <form>
+                            <div class="form-group">
+                                <input class="form-control" name="" placeholder="Bạn đang tìm kiếm điều gì?" type="text">
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input class="form-control" placeholder="Số lượng" name="" type="text">
+
+                                    <select class="custom-select form-control">
+                                        <option>Pieces</option>
+                                        <option>Litres</option>
+                                        <option>Tons</option>
+                                        <option>Gramms</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group text-muted">
+                                <p>Select template type:</p>
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="option1">
+                                    <span class="form-check-label">
+                                        Yêu cầu giá
+                                    </span>
+                                </label>
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="option2">
+                                    <dspaniv class="form-check-label">
+                                        Yêu cầu một ví dụ</span>
+</label>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-warning">
+                                    Yêu cầu báo giá
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div> <!-- col // -->
+            </div> <!-- row // -->
+        </section>
+
+        <!-- =============== SECTION REQUEST .//END =============== -->
+        <!-- =============== SECTION ITEMS =============== -->
+        <section class="padding-bottom-sm">
+
+            <header class="section-heading heading-line">
+                <h4 class="title-section text-uppercase">Sản phẩm đề xuất</h4>
+            </header>
+
+            <div class="row row-sm">
+               @foreach (var item in Model.ListProduct.Where(n => n.TypeId == 2).Take(6))
+               {
+                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+                    <div class="card card-sm card-product-grid">
+                        <a href="@Url.Action("Details", "Product", new { Id = item.Id })" class="img-wrap"> <img src="~/Content/images/items/@item.Avatar"> </a>
+                        <figcaption class="info-wrap">
+                            @Html.ActionLink(item.Name, "Details", "Product", new { @Id = item.Id }, null)
+                            <div class="price mt-1">@item.Price</div> <!-- price-wrap.// -->
+                        </figcaption>
+                    </div>
+                </div> <!-- col.// -->
+               }
+            
+            </div> <!-- row.// -->
+        </section>
+        <!-- =============== SECTION ITEMS .//END =============== -->
+        <!-- =============== SECTION SERVICES =============== -->
+        <section class="padding-bottom">
+
+            <header class="section-heading heading-line">
+                <h4 class="title-section text-uppercase">DỊCH VỤ THƯƠNG MẠI</h4>
+            </header>
+
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <article class="card card-post">
+                        <img src="~/Content/images/posts/1.jpg" class="card-img-top">
+                        <div class="card-body">
+                            <h6 class="title">Đảm bảo thương mại</h6>
+                            <p class="small text-uppercase text-muted">Bảo vệ đơn hàng</p>
+                        </div>
+                    </article> <!-- card.// -->
+                </div> <!-- col.// -->
+                <div class="col-md-3 col-sm-6">
+                    <article class="card card-post">
+                        <img src="~/Content/images/posts/2.jpg" class="card-img-top">
+                        <div class="card-body">
+                            <h6 class="title">Thanh toán bất cứ lúc nào</h6>
+                            <p class="small text-uppercase text-muted">
+                                Giải pháp tài chính
+                            </p>
+                        </div>
+                    </article> <!-- card.// -->
+                </div> <!-- col.// -->
+                <div class="col-md-3 col-sm-6">
+                    <article class="card card-post">
+                        <img src="~/Content/images/posts/3.jpg" class="card-img-top">
+                        <div class="card-body">
+                            <h6 class="title">
+                                Giải pháp kiểm tra
+                            </h6>
+                            <p class="small text-uppercase text-muted">Kiểm tra dễ dàng</p>
+                        </div>
+                    </article> <!-- card.// -->
+                </div> <!-- col.// -->
+                <div class="col-md-3 col-sm-6">
+                    <article class="card card-post">
+                        <img src="~/Content/images/posts/4.jpg" class="card-img-top">
+                        <div class="card-body">
+                            <h6 class="title">Vận chuyển đường biển và hàng không</h6>
+                            <p class="small text-uppercase text-muted">
+                                Dịch vụ hậu cần
+                            </p>
+                        </div>
+                    </article> <!-- card.// -->
+                </div> <!-- col.// -->
+            </div> <!-- row.// -->
+
+        </section>
+        <!-- =============== SECTION SERVICES .//END =============== -->
+        <!-- =============== SECTION REGION =============== -->
+        <section class="padding-bottom">
+
+            <header class="section-heading heading-line">
+                <h4 class="title-section text-uppercase">Chọn khu vực</h4>
+            </header>
+
+            <ul class="row mt-4">
+                <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/CN.png"> <span>Trung Quốc</span> </a></li>
+                <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/DE.png"> <span>Đức</span> </a></li>
+                <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/AU.png"> <span>Úc</span> </a></li>
+                <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/RU.png"> <span>Nga</span> </a></li>
+                <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/IN.png"> <span>Ấn Độ</span> </a></li>
+                <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/GB.png"> <span>Anh</span> </a></li>
+                <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/TR.png"> <span>Thổ Nhĩ Kỳ</span> </a></li>
+                <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/UZ.png"> <span>Uzbekistan</span> </a></li>
+                <li class="col-md col-6"><a href="#" class="icontext"> <i class="mr-3 fa fa-ellipsis-h"></i> <span>Các khu vực khác</span> </a></li>
+            </ul>
+        </section>
+        <!-- =============== SECTION REGION .//END =============== -->
+
+        <article class="my-4">
+            <img src="~/Content/images/banners/ad-sm.png" class="w-100">
+        </article>
+    </div>
+    <!-- container end.// -->
+    <!-- ========================= SECTION SUBSCRIBE  ========================= -->
+    <section class="section-subscribe padding-y-lg">
+        <div class="container">
+
+            <p class="pb-2 text-center text-white">Cung cấp các xu hướng sản phẩm mới nhất và tin tức ngành đến hộp thư đến của bạn</p>
+
+            <div class="row justify-content-md-center">
+                <div class="col-lg-5 col-md-6">
+                    <form class="form-row">
+                        <div class="col-md-8 col-7">
+                            <input class="form-control border-0" placeholder="Email của bạn" type="email">
+                        </div> <!-- col.// -->
+                        <div class="col-md-4 col-5">
+                            <button type="submit" class="btn btn-block btn-warning"> <i class="fa fa-envelope"></i> Đặt mua </button>
+                        </div> <!-- col.// -->
+                    </form>
+                    <small class="form-text text-white-50">
+                        Chúng tôi sẽ không bao giờ chia sẻ địa chỉ email của bạn với bên thứ ba.
+                    </small>
+                </div> <!-- col-md-6.// -->
+            </div>
+
+
+        </div>
+    </section>
+    <!-- ========================= SECTION SUBSCRIBE END// ========================= -->
+
+
+
+
+</body>
+</html>
